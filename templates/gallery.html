@@ -3,38 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie d'Images</title>
+    <title>Anonymous Gallery - Gaza Palestine</title>
+    
+    <!-- 🌐 SEO & Social Media Meta Tags -->
+    <meta name="description" content="Galerie anonyme d'images - Soutien à Gaza et la Palestine.">
+    <meta name="keywords" content="Anonymous, Gaza, Palestine, Freedom, Hacker, Hacktivism, Cyber Resistance">
+    <meta property="og:title" content="Anonymous Gallery - Gaza Palestine">
+    <meta property="og:description" content="Galerie anonyme d'images - Soutien à Gaza et la Palestine.">
+    <meta property="og:image" content="https://tofweb.onrender.com/tof/preview.jpg">
+    <meta property="og:url" content="https://tofweb.onrender.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anonymous Gallery - Gaza Palestine">
+    <meta name="twitter:description" content="Galerie anonyme d'images - Soutien à Gaza et la Palestine.">
+    <meta name="twitter:image" content="https://tofweb.onrender.com/tof/preview.jpg">
+
+    <!-- 💀 Dark Hacker Style -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
         body {
-            background-color: #121212;
-            color: #fff;
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Orbitron', sans-serif;
             text-align: center;
-            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+            margin-top: 20px;
+        }
+
+        .glitch {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+            animation: glitch 1s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch {
+            0% { transform: translateX(2px); }
+            50% { transform: translateX(-2px); }
+            100% { transform: translateX(2px); }
+        }
+
         .gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             padding: 20px;
         }
+
         .gallery img {
             width: 200px;
-            height: auto;
-            border-radius: 5px;
-            transition: transform 0.2s;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #0f0;
+            box-shadow: 0 0 10px #0f0;
         }
+
         .gallery img:hover {
             transform: scale(1.1);
+            box-shadow: 0 0 20px #0f0;
         }
+
+        footer {
+            margin-top: 20px;
+            font-size: 1em;
+            opacity: 0.8;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Galerie d'Images</h1>
+
+    <h1>Anonymous Gallery</h1>
+    <p class="glitch">✊ Support to Gaza & Palestine ✊</p>
+
     <div class="gallery">
         {% for image in images %}
             <img src="{{ url_for('serve_image', filename=image) }}" alt="Image">
         {% endfor %}
     </div>
+
+    <footer>
+        <p>✦ We Are Anonymous | We Do Not Forgive | We Do Not Forget ✦</p>
+    </footer>
+
 </body>
 </html>
