@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie d'Images</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Galerie d'Images</h1>
+    <div class="gallery">
+        {% for image in images %}
+            <img src="{{ url_for('serve_image', filename=image) }}" alt="Image">
+        {% endfor %}
+    </div>
+</body>
+</html>
